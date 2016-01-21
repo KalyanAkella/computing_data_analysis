@@ -1,0 +1,17 @@
+{
+    "contents" : "getmonitor <- function (id, directory, summarize = FALSE) {\n  ## 'id' is a vector of length 1 indicating the monitor ID\n  ## number. The user can specify 'id' as either an integer, a\n  ## character, or a numeric.\n  \n  ## 'directory' is a character vector of length 1 indicating\n  ## the location of the CSV files\n  \n  ## 'summarize' is a logical indicating whether a summary of\n  ## the data should be printed to the console; the default is\n  ## FALSE\n  \n  ## Your code here\n  filename <- paste(sprintf(\"%03d\", as.integer(id)), \"csv\", sep = \".\")\n  complete <- paste(directory, filename, sep = \"/\")\n  data = read.csv(complete)\n  if (summarize) {\n    print(summary(data))\n  }\n  data\n}\n",
+    "created" : 1390054057864.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1197432862",
+    "id" : "52CE0A6B",
+    "lastKnownWriteTime" : 1390057329,
+    "path" : "~/Projects/computing_data_analysis/assign2/prog/getMonitor.R",
+    "project_path" : "getMonitor.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

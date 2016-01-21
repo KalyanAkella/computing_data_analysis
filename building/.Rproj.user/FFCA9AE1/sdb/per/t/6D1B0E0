@@ -1,0 +1,17 @@
+{
+    "contents" : "# returns the best and the worst buildings in the given aspect,\n# eg., energy consumption, water consumption, etc. Data is reported\n# per region. Note that, higher the value, worser the building's rank.\n# input: aspect must be one of: energy, water, co2, waste, non.recycled.waste\n# output: data.frame(region, best.building, worst.building)\n# the building is reported in the format, {<building-name>, <post-code>}\nbestAndWorst <- function (aspect) {\n  result <- data.frame(region = NA, best.building = NA, worst.building = NA)\n  aspects <- pairlist(energy = 39, water = 40, waste = 41,\n                      co2 = 42, non.recycled.waste = 44)\n  if (!(aspect %in% names(aspects))) {\n    stop(\"invalid aspect\")\n  }\n  buildingData <- read.csv(\"building_data.csv\", colClasses = \"character\")\n  aspectCol <- aspects[[aspect]]\n  buildingData[, aspectCol] <- as.numeric(gsub(\",\", \"\", buildingData[, aspectCol]))\n  buildingData <- buildingData[complete.cases(buildingData[, aspectCol]), ]\n  regionFactor <- factor(buildingData$Region)\n  for (region in unique(regionFactor)) {\n    buildingDataForRegion <- buildingData[buildingData$Region == region, ]\n    incBuildingData <- buildingDataForRegion[order(buildingDataForRegion[, aspectCol], buildingDataForRegion$Building.Name), ]\n    decBuildingData <- buildingDataForRegion[order(-buildingDataForRegion[, aspectCol], buildingDataForRegion$Building.Name), ]\n    bestBuilding <- paste(incBuildingData$Building.Name[1], incBuildingData$Postcode[1], sep = \", \")\n    worstBuilding <- paste(decBuildingData$Building.Name[1], decBuildingData$Postcode[1], sep = \", \")\n    result <- rbind(result, c(region, bestBuilding, worstBuilding))\n  }\n  result[complete.cases(result), ]\n}\n",
+    "created" : 1390762895855.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1304086730",
+    "id" : "6D1B0E0",
+    "lastKnownWriteTime" : 1390765480,
+    "path" : "~/Projects/computing_data_analysis/building/bestAndWorst.R",
+    "project_path" : "bestAndWorst.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

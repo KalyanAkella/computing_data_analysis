@@ -1,0 +1,17 @@
+{
+    "contents" : "rankhospital <- function (state, outcome, num = \"best\") {\n  outcomeData <- read.csv(\"outcome-of-care-measures.csv\", colClasses = \"character\")\n  outcomes <- table(row.names = c(\"heart attack\", \"heart failure\", \"pneumonia\"))\n  outcomes[1] <- 11; outcomes[2] <- 17; outcomes[3] <- 23\n  \n  for (i in 1:3) {\n    outcomeData[, outcomes[i]] <- as.numeric(outcomeData[, outcomes[i]])\n  }\n  \n  if (!(state %in% outcomeData$State)) {\n    stop(\"invalid state\")\n  }\n  \n  if (!(outcome %in% row.names(outcomes))) {\n    stop(\"invalid outcome\")\n  }\n  \n  outcomeDataGivenState <- outcomeData[outcomeData$State == state, ]\n  inputOutcomes <- outcomeDataGivenState[, outcomes[outcome]]\n  sortedOutcomeData <- outcomeDataGivenState[\n    order(inputOutcomes, outcomeDataGivenState$Hospital.Name), ]\n  sortedOutcomeData <- sortedOutcomeData[complete.cases(sortedOutcomeData[, outcomes[outcome]]), ]\n  \n  if (num == \"best\")\n    sortedOutcomeData[1, \"Hospital.Name\"]\n  else if (num == \"worst\")\n    sortedOutcomeData[nrow(sortedOutcomeData), \"Hospital.Name\"]\n  else if (is.numeric(num)) {\n    if (num <= nrow(sortedOutcomeData))\n      sortedOutcomeData[num, \"Hospital.Name\"]\n    else\n      NA\n  }\n}\n",
+    "created" : 1390686986046.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3498786021",
+    "id" : "64F378E0",
+    "lastKnownWriteTime" : 1390688697,
+    "path" : "~/Projects/computing_data_analysis/assign3/rankhospital.R",
+    "project_path" : "rankhospital.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "sortMedianPlot <- function () {\n  outcome <- read.csv(\"outcome-of-care-measures.csv\", colClasses = \"character\")\n  outcome[, 11] <- as.numeric(outcome[, 11])\n  \n  stateFactor <- factor(outcome$State)\n  mediansByState <- sapply(outcomeByState, function (ele) median(ele[, 11], na.rm = TRUE))\n  for (state in unique(stateFactor)) {\n    medianForState <- mediansByState[[state]]\n    outcome[outcome$State == state, \"median\"] <- medianForState\n  }\n  outcome <- outcome[order(outcome$median), ]\n  deaths <- outcome[, 11]\n  states <- factor(outcome$State, ordered = TRUE)\n  boxplot(deaths ~ states)\n}",
+    "created" : 1390724639704.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1798922766",
+    "id" : "91ED361",
+    "lastKnownWriteTime" : 1390727561,
+    "path" : "~/Projects/computing_data_analysis/assign3/sortMedianPlot.R",
+    "project_path" : "sortMedianPlot.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

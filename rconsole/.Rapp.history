@@ -1,0 +1,250 @@
+m
+x <- 1:3
+y <- 10:12
+x
+y
+cbind(x,y)
+rbind(x,y)
+x <- list(1, 'a', T, 1+4i)
+x
+x[1]
+class(x[1])
+class(x)
+class(x[1][1])
+class(x[][1]])
+class(x[[1]])
+x <- factor(c("yes", "yes", "no", "yes", "no"))
+x
+levels(x)
+table(x)
+unclass(x)
+table(x)
+x
+m
+table(m)
+table(1)
+unclass(m)
+m
+unclass(c)
+unclass(x)
+x
+is.nan(Inf/Inf)
+is.na(y)
+y
+is.na(p)
+NaN == NA
+NaN == NAN
+NaN == NaN
+Na == NaN
+NA == NaN
+is.na(c(NA, NaN))
+is.nan(c(NA, NaN))
+x <- data.frame(foo = 1:4, bar = c(T, T, F, F))
+x
+nrow(x)
+ncol(x)
+attributes(x)
+class(x)
+names(x)
+x <- 1:10
+names(x)
+names(x) <- c('foo', 'bar')
+x
+dim(x) <- c(5, 2)
+x
+names(x) <- c('foo', 'bar')
+x
+x <- 1:3
+names(x)
+names(x) <- c('foo', 'bar', 'barf')
+x
+names(x)
+x <- list(a=1, b=2, c=3)
+x
+x <- list(1, 2, 3)
+x
+x <- list(a=1, b=2, c=3)
+$a(x)
+a(x)
+x$a
+x$b
+x$c
+x
+m <- matrix(1:4, nrow = 2, ncol = 2)
+m
+dimnames(m) <- list(c("a", "b"), c("c", "d"))
+m
+m[a]
+m
+attributes(m)
+x <- c('a', 'b', 'c', 'c', 'a')
+c
+x
+x[1]
+x[2]
+x[1:3]
+x[x > 'a']
+x > 'a'
+u <- x > 'a'
+x[u]
+y <- matrix(1:6, 2,3)
+y
+y[1,2]
+y[2,2]
+x[1,]
+y[1,]
+y[,]
+y[,2]
+y[1,2]
+y[1,2,drop=FALSE]
+y[1,,drop=FALSE]
+y[1,]
+x <- list(foo=1:4, bar=0.6)
+x
+x[1]
+x[[1]]
+x[[1]].class
+class(x[[1]])
+class(x[1])
+x$bar
+x[["bar"]]
+x["bar"]
+x <- list(foo = 1:4, bar = 0.6, baz = "hello")
+x
+x[1]
+x[c(1,3)]
+x[1]
+x$foo
+x
+u <- c('foo', 'bar')
+x[[u]]
+x[u]
+x[u] == x[c(1,3)]
+class(x[u])
+class(x[c(1,3)])
+x[c(1,3)]
+x[c(1,2)]
+x[u]
+u
+x[[u]]
+x[[c(1,3)]]
+x
+x <- list(a=list(10,12,14), b=c(3.14,2.81))
+x
+x[[c(1,3)]]
+x[[2,1]]
+x[[c(2,1)]]
+x <- list(aardvark=1:5)
+x
+x$a
+x$aaa
+x$aad
+x$aar
+x[["a"]]
+x[["a", exact=F]]
+x <- c(1,2,NA,4,NA,5)
+bad <- is.na(x)
+bad
+x[!bad]
+x[!is.na(x)]
+bad
+bad[bad == TRUE]
+bad == TRUE
+x <- c(1,2,NA,4,NA,5)
+x
+y <- c('a', 'b', NA, 'd', NA, 'f')
+y
+good <- complete.cases(x)
+good
+good <- complete.cases(x,y)
+good
+x[good]
+y[good]
+y <- c('a', 'b', NA, 'd', 'f', NA)
+good <- complete.cases(x,y)
+y[good]
+x[good]
+x
+y
+x <- 1:4; y <- 6:9
+x
+y
+x+y
+x > 2
+x > y
+y > x
+x / y
+rep(10, 4)
+rep(Inf, 4)
+rep(Inf, Inf)
+x <- matrix(1:4, 2, 2); y <- matrix(rep(10, 4), 2, 2)
+x * x
+x * y
+x %*% y
+x / y
+y <- data.frame(a=1, b="a")
+y
+dput(y)
+str(.Platform)
+.Platform
+class(.Platform)
+class(str(.Platform))
+str(file)
+con <- url("http://www.google.com", "r")
+x <- readLines(con)
+head(x)
+getwd()
+library(datasets)
+class(airquality)
+str(airquality)
+airquality[1:4,]
+airquality[1:4,Ozone]
+airquality[1:4,$Ozone]
+airquality[1:4,3]
+airquality[1:4,1]
+airquality[1:4,]
+airquality[1:4,1]
+airquality[1:4,1:3]
+airquality[1:4,1:2]
+airquality[1:4,11]
+str(airquality)
+mean(airquality$Ozone)
+mean(airquality$Ozone[complete.cases(airquality$Ozone)])
+max(airquality$Ozone[complete.cases(airquality$Ozone)])
+min(airquality$Ozone[complete.cases(airquality$Ozone)])
+summary(airquality$Ozone)
+length(airquality$Ozone[is.na(airquality$Ozone)])
+airquality$Ozone > 90
+airquality$Ozone > 90
+airquality[airquality$Ozone > 90]
+airquality[airquality$Ozone > 90, ]
+airquality[airquality$Ozone > 90 && complete.cases(airquality$Ozone), ]
+airquality[airquality$Ozone > 90 && airquality$T > 30, ]
+airquality[airquality$Ozone > 90, ]
+T and F
+ls()
+mean(airquality$Ozone)
+mean(airquality$Ozone[complete.cases(airquality$Ozone)])
+max(airquality$Ozone[complete.cases(airquality$Ozone)])
+ozone90 <- airquality[airquality$Ozone > 90]
+ozone90 <- airquality[airquality$Ozone > 90, ]
+str(ozone90)
+summary(ozone90)
+ozone90 <- ozone90[complete.cases(ozone90$Ozone)]
+ozone90 <- ozone90[complete.cases(ozone90$Ozone),]
+ozone90
+result <- ozone90[ozone90$Temp > 90]
+result <- ozone90[ozone90$Temp > 90,]
+result
+mean(result$Ozone)
+split(result, $Month)
+split(result, Month)
+split(result, result$Month)
+str(airmiles)
+class(airmiles)
+str(class(airmiles))
+attributes(airmiles)
+rnorm(10)
+rnorm(10, 20)
+rnorm(10, 20, 10)
+rnorm(10, 20, 1)

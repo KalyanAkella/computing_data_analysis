@@ -1,0 +1,17 @@
+{
+    "contents" : "library(lattice)\npackage ? lattice\nlibrary(help = lattice)\ndata(environmental)\n?environmental\n# simple scatter plot between ozone (y-axis) and radiation (x-axis)\nxyplot(ozone ~ radiation, data = environmental)\nxyplot(ozone ~ radiation, data = environmental, main = \"Ozone vs Radiation\")\nxyplot(ozone ~ temperature, data = environmental)\nsummary(environmental$temperature)\n?equal.count\n\n# create 4 different ranges for the temperature variable\ntemp.cut <- equal.count(environmental$temperature, 4)\n\nxyplot(ozone ~ radiation | temp.cut, data = environmental)\n\nxyplot(ozone ~ radiation | temp.cut, data = environmental, layout = c(1,4))\n\nxyplot(ozone ~ radiation | temp.cut, data = environmental, layout = c(1,4), as.table = TRUE)\n\nxyplot(ozone ~ radiation | temp.cut, data = environmental, as.table = TRUE)\n\nxyplot(ozone ~ radiation | temp.cut, data = environmental, as.table = TRUE,\n       panel = function (x, y, ...) {\n         panel.xyplot(x, y, ...)\n         fit <- lm(y ~ x)\n         panel.abline(fit)\n       })\n\nxyplot(ozone ~ radiation | temp.cut, data = environmental, as.table = TRUE, pch = 20,\n       panel = function (x, y, ...) {\n         panel.xyplot(x, y, ...)\n         fit <- lm(y ~ x)\n         panel.abline(fit, lwd = 2)\n       })\n\nxyplot(ozone ~ radiation | temp.cut, data = environmental, as.table = TRUE, pch = 20,\n       panel = function (x, y, ...) {\n         panel.xyplot(x, y, ...)\n         panel.loess(x, y)\n       })\n\nwind.cut <- equal.count(environmental$wind, 4)\n\nxyplot(ozone ~ radiation | temp.cut * wind.cut, data = environmental,\n       panel = function (x, y, ...) {\n         panel.xyplot(x, y, ...)\n         panel.loess(x, y)\n       }, as.table = TRUE, pch = 20, xlab = \"Solar Radiation\",\n       ylab = \"Ozone (ppb)\", main = \"Ozone vs Solar Radiation\")\n\nsplom(~ environmental)\nhistogram(~ temperature, data = environmental)\n\nhistogram(~ temperature | wind.cut, data = environmental)\n\nhistogram(~ ozone | wind.cut, data = environmental)\n\nhistogram(~ ozone | wind.cut * temp.cut, data = environmental)\n\n",
+    "created" : 1390545563204.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "140896973",
+    "id" : "E4D1F047",
+    "lastKnownWriteTime" : 1390548516,
+    "path" : "~/Projects/computing_data_analysis/lattice_demo/Demo.R",
+    "project_path" : "Demo.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

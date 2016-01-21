@@ -1,0 +1,16 @@
+{
+    "contents" : "count <- function (cause = NULL) {\n  causes <- paste(\"^asphyxiation$\", \"^blunt force$\", \"^other$\", \"^shooting$\", \"^stabbing$\", \"^unknown$\", sep = \"|\")\n  match <- grep(causes, cause, ignore.case = TRUE)\n  if (length(match) == 0) {\n    stop(\"invalid cause\")\n  }\n  \n  homicides <- readLines(\"homicides.txt\")\n  causeRegExp <- paste(\"Cause:\", cause)\n  result <- grep(causeRegExp, homicides, ignore.case = TRUE)\n  length(result)\n}\n",
+    "created" : 1423281506579.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1923438084",
+    "id" : "98CA466D",
+    "lastKnownWriteTime" : 1391257170,
+    "path" : "~/Projects/computing_data_analysis/assign4/count.R",
+    "project_path" : "count.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

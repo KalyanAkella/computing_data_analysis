@@ -1,0 +1,17 @@
+{
+    "contents" : "# returns the list of greenest buildings in every region\n# greenest - least energy consumed\ngreenBuildings <- function () {\n  result <- data.frame(building = NA, region = NA, kwh = NA, Max.kwh = NA)\n  buildingData <- read.csv(\"building_data.csv\", colClasses = \"character\")\n  buildingData[, 39] <- as.numeric(gsub(\",\", \"\", buildingData[, 39]))\n  buildingData <- buildingData[complete.cases(buildingData[, 39]), ]\n  for (region in unique(factor(buildingData$Region))) {\n    buildingDataForRegion <- buildingData[buildingData$Region == region, ]\n    sortedBuildingData <- buildingDataForRegion[order(buildingDataForRegion[, 39], buildingDataForRegion$Building.Name), ]\n    maxKwh <- max(sortedBuildingData[, 39])\n    result <- rbind(result, c(sortedBuildingData$Building.Name[1], region, sortedBuildingData[1, 39], maxKwh))\n  }\n  result[complete.cases(result), ]\n}\n",
+    "created" : 1390761782301.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1736966251",
+    "id" : "33B161D3",
+    "lastKnownWriteTime" : 1390762733,
+    "path" : "~/Projects/computing_data_analysis/building/greenBuildings.R",
+    "project_path" : "greenBuildings.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

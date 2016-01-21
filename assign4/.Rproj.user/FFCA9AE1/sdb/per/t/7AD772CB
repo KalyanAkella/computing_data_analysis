@@ -1,0 +1,17 @@
+{
+    "contents" : "raceCount <- function () {\n  homicides <- readLines(\"homicides.txt\")\n  r <- regexec(\"<dd>([a-zA-Z]+) +(female|man|male), .*?</dd>|<dd>.*?Race: +([a-zA-Z ]+).*?<br\", homicides)\n  matches <- regmatches(homicides, r)\n  races <- sapply(matches, function (x) {\n    match1 <- nchar(x[2]) > 0\n    match2 <- nchar(x[4]) > 0\n    if (match1) {\n      tolower(x[2])\n    } else if (match2) {\n      tolower(x[4])\n    } else {\n      NULL\n    }\n  })\n  table(races)\n}",
+    "created" : 1391408038986.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "348400749",
+    "id" : "7AD772CB",
+    "lastKnownWriteTime" : 1391410751,
+    "path" : "~/Projects/computing_data_analysis/assign4/raceCount.R",
+    "project_path" : "raceCount.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

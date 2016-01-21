@@ -1,0 +1,17 @@
+{
+    "contents" : "agecount <- function (age = NULL) {\n  if (is.null(age)) {\n    stop(\"missing age\")\n  }\n  homicides <- readLines(\"homicides.txt\")\n  r <- regexec(\"([0-9]+) years old\", homicides)\n  matches <- regmatches(homicides, r)\n  ages <- sapply(matches, function (x) as.numeric(x[2]))\n  ages <- ages[complete.cases(ages)]\n  result <- 0\n  for (i in seq_along(ages)) {\n    if (age == ages[i]) {\n      result <- result + 1\n    }\n  }\n  result\n}\n",
+    "created" : 1391257572920.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "131912887",
+    "id" : "A602108F",
+    "lastKnownWriteTime" : 1391268302,
+    "path" : "~/Projects/computing_data_analysis/assign4/ageCount.R",
+    "project_path" : "ageCount.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

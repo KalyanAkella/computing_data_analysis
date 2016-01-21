@@ -1,0 +1,17 @@
+{
+    "contents" : "setClass(\"polygon\", representation(x = \"numeric\", y = \"numeric\"))\nsetMethod(\"plot\", \"polygon\", \n          function (x, y, ...) {      # must match the definition of plot() exactly\n            plot(x@x, x@y, type = \"n\", ...)   #the polygon is passed inside 'x' and argument 'y' is ignored\n            xp <- c(x@x, x@x[1])\n            yp <- c(x@y, x@y[1])\n            lines(xp, yp)\n          })\n\np <- new(\"polygon\", x = c(1, 2, 3, 4), y = c(1, 2, 3, 1))\nplot(p)\n",
+    "created" : 1391253774746.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2708766901",
+    "id" : "46FA59D1",
+    "lastKnownWriteTime" : 1391254703,
+    "path" : "~/Projects/computing_data_analysis/classes/polygon.R",
+    "project_path" : "polygon.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}
